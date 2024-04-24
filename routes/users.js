@@ -1,19 +1,18 @@
 import express from 'express';
 const router = express.Router();
+import { v4 as uuidv4 } from 'uuid';
 
 // Mock database
 const users = [
-  {
-    first_name: 'John',
-    last_name: 'Doe',
-    email: 'johndoe@example.com',
-  },
-  {
-    first_name: 'Alice',
-    last_name: 'Smith',
-    email: 'alicesmith@example.com',
-  },
 ];
+
+router.post('/', (req, res) => {
+  const user = req.body;
+
+  users.push({ ...user, id: uuidv4() });
+
+  res.send(user);
+}) 
 
 // Getting the list of users from the mock database
 router.get('/', (req, res) => {
