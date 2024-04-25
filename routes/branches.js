@@ -2,7 +2,6 @@ import express from "express";
 const router = express.Router();
 import { v4 as uuidv4 } from "uuid";
 import mysql from "mysql";
-import e from "express";
 
 // Create a database connection
 const connection = mysql.createConnection({
